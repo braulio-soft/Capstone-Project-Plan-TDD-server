@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
 //const reservationController = require('../controllers/reservationController');
+
 /**
  * @swagger
  * /products:
@@ -12,6 +13,18 @@ const productController = require('../controllers/productController');
  *         description: List of Products
  */
 router.get('/', productController.getProducts);
+
+/**
+ * @swagger
+ * /products/movies:
+ *   get:
+ *     summary: Get all movies in  products
+ *     responses:
+ *       200:
+ *         description: List Movies of Products
+ */
+router.get('/movies', productController.getMoviesProducts);
+
 /**
  * @swagger
  * /products/{id}:
