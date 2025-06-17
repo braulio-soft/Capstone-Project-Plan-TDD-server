@@ -10,6 +10,11 @@ const getMoviesProducts = async () => {
     return res.rows;
 };
 
+const getMoviesShows = async () => {
+    const res = await pool.query("SELECT * FROM products AS p WHERE p.type = 'Streaming Service'");
+    return res.rows;
+};
+
 //TODO: Fix details in body request for create product with required values . 
 const createProduct = async (name) => {
     const res = await pool.query('INSERT INTO products (name) VALUES ($1) RETURNING *', [name]);
@@ -25,5 +30,6 @@ module.exports = {
     getProducts,
     createProduct,
     getMoviesProducts,
+    getMoviesShows,
     getProductById
 }

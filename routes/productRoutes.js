@@ -27,6 +27,17 @@ router.get('/movies', productController.getMoviesProducts);
 
 /**
  * @swagger
+ * /products/shows:
+ *   get:
+ *     summary: Get all shows in  products
+ *     responses:
+ *       200:
+ *         description: List Streaming Service of Products
+ */
+router.get('/shows', productController.getShowsProducts);
+
+/**
+ * @swagger
  * /products/{id}:
  *   get:
  *     summary: Get a product by ID

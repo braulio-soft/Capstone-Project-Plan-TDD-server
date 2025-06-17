@@ -19,6 +19,15 @@ const getMoviesProducts = async (req, res) => {
     }
 }
 
+const getShowsProducts = async (req, res) => {
+    try {
+        const products = await productModel.getMoviesShows();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
 
 const createProduct = async (req, res) => {
     try {
@@ -45,6 +54,7 @@ const getProductById = async (req, res) => {
 module.exports = {
     getProducts,
     createProduct,
+    getShowsProducts,
     getMoviesProducts,
     getProductById
 }
